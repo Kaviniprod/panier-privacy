@@ -1,0 +1,114 @@
+/* Panier's home page. Colours are lib/theme.dart's (PanierColors, light and dark
+   each chosen against their own ground) and the logo's plum; the type is the
+   IBM Plex the app bundles, served from this folder. */
+@font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-display: swap; src: url("fonts/IBMPlexSans-Regular.ttf") format("truetype"); }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 500; font-display: swap; src: url("fonts/IBMPlexSans-Medium.ttf") format("truetype"); }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 600; font-display: swap; src: url("fonts/IBMPlexSans-SemiBold.ttf") format("truetype"); }
+
+:root {
+  color-scheme: light dark;
+  --bg: #FBFAF9; --card: #FFFFFF; --text: #1B1A19; --muted: #5C5955; --line: #E4E0DB;
+  --plum: #6B3F63; --plum-top: #7C4A73; --plum-bottom: #5E3657; --pink: #F3B3E4; --paper: #FBFAF9;
+  --rise: #B3261E; --fall: #006300; --warn: #8A5000; --warnwash: #EDE6DB;
+  --s0: #2A78D6; --s1: #EB6834; --s2: #1BAF7A; --s3: #4A3AA7;
+  --tint: #F4EEF3;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413; --card: #1F1F1E; --text: #E8E6E3; --muted: #C4C1BC; --line: #44423F;
+    --rise: #FF8A80; --fall: #4AC94A; --warn: #FFB95C; --warnwash: #30281C;
+    --s0: #3987E5; --s1: #D95926; --s2: #199E70; --s3: #9085E9;
+    --tint: #231D22;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 400 17px/1.6 "IBM Plex Sans", system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; border-radius: 4px; }
+.skip { position: absolute; left: 16px; top: -4rem; background: var(--paper); color: var(--plum);
+        padding: .5rem 1rem; border-radius: 8px; z-index: 10; }
+.skip:focus { top: 12px; }
+
+/* --- hero --- */
+.hero {
+  background: radial-gradient(60rem 30rem at 85% 40%, rgba(243, 179, 228, .18), transparent 60%),
+              linear-gradient(180deg, var(--plum-top), var(--plum-bottom));
+  color: var(--paper); border-radius: 0 0 36px 36px; padding: 0 16px 56px;
+}
+.top { max-width: 68rem; margin: 0 auto; padding: 20px 0; display: flex; justify-content: space-between;
+       align-items: center; font-weight: 600; }
+.top a { font-weight: 400; text-decoration: none; opacity: .85; border: 1px solid rgba(251, 250, 249, .35);
+         padding: .25rem .8rem; border-radius: 999px; font-size: 15px; }
+.top a:hover { opacity: 1; }
+.hero-grid { max-width: 68rem; margin: 0 auto; display: grid; gap: 24px; align-items: center; padding-top: 12px; }
+.eyebrow { margin: 0 0 .5rem; color: var(--pink); font-weight: 500; letter-spacing: .08em;
+           text-transform: uppercase; font-size: 13px; }
+h1 { margin: 0 0 1rem; font-weight: 600; line-height: 1.1; letter-spacing: -.02em;
+     font-size: clamp(2.1rem, 6.5vw, 3.6rem); }
+.lead { margin: 0 0 1rem; font-size: clamp(1.05rem, 2.4vw, 1.3rem); max-width: 34rem; opacity: .95; }
+.hero-note { margin: 0; font-size: 15px; color: var(--pink); }
+.hero-mark { justify-self: center; width: min(46%, 15rem); }
+.mark { display: block; width: 100%; height: auto; filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .25)); }
+@media (min-width: 760px) {
+  .hero-grid { grid-template-columns: 1.3fr 1fr; }
+  .hero { padding-bottom: 72px; }
+}
+
+/* --- body --- */
+main, footer { max-width: 68rem; margin: 0 auto; padding: 0 16px; }
+section { margin-top: 56px; }
+h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); line-height: 1.2; letter-spacing: -.01em; margin: 0 0 1.25rem; font-weight: 600; }
+h3 { font-size: 1.1rem; margin: 0 0 .35rem; font-weight: 600; }
+.muted { color: var(--muted); margin: 0 0 1rem; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; }
+
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; counter-reset: step; }
+@media (min-width: 760px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+.step { position: relative; counter-increment: step; }
+.step::before {
+  content: counter(step); position: absolute; top: 16px; right: 16px; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--plum); color: var(--paper); font-weight: 600; font-size: 14px; display: grid; place-items: center;
+}
+.step p { margin: 0; color: var(--muted); font-size: 16px; }
+.icon { width: 72px; height: 72px; display: block; margin-bottom: 12px; }
+
+.charts { display: grid; gap: 16px; }
+@media (min-width: 760px) {
+  .charts { grid-template-columns: 1fr 1fr; }
+  #history { grid-column: 1 / -1; }
+}
+.chart-card { display: flex; flex-direction: column; }
+.chart { width: 100%; height: auto; max-width: 34rem; display: block; margin: 0 auto; overflow: visible; }
+#history .chart { max-width: 40rem; }
+.chart text { font-family: inherit; fill: var(--text); font-size: 13px; }
+.chart .axis { fill: var(--muted); font-size: 11.5px; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .axisline { stroke: var(--muted); }
+.chart .strong { font-weight: 600; }
+.chart .best { stroke: var(--text); stroke-width: 2.5; }
+.gap { margin: .75rem 0 0; font-weight: 500; }
+details { margin-top: .75rem; font-size: 15px; }
+summary { cursor: pointer; color: var(--muted); }
+.values { margin: .5rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+.sample { margin: .75rem 0 0; font-size: 13px; color: var(--muted); font-style: italic; }
+.sample::before { content: "\25C7\00a0"; font-style: normal; }
+.chart-card details { margin-bottom: auto; }
+
+.privacy-list { list-style: none; margin: 0 0 1.25rem; padding: 0; display: grid; gap: 12px; }
+@media (min-width: 760px) { .privacy-list { grid-template-columns: repeat(3, 1fr); } }
+.privacy-list li { background: var(--tint); border-radius: 20px; padding: 20px; border-left: 4px solid var(--plum); display: grid; gap: 4px; }
+.privacy-list span { color: var(--muted); font-size: 16px; }
+.button { display: inline-block; background: var(--plum); color: var(--paper); text-decoration: none; font-weight: 500;
+          padding: .75rem 1.4rem; border-radius: 12px; }
+.button:hover { filter: brightness(1.12); }
+
+footer { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-top: 24px; padding-bottom: 56px; margin-top: 56px;
+         border-top: 1px solid var(--line); font-size: 15px; color: var(--muted); }
+footer a { text-decoration: none; }
+footer a:hover { text-decoration: underline; }
