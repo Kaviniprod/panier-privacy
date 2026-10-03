@@ -14,6 +14,12 @@ nav { color: var(--muted); font-size: 15px; margin-bottom: 1.5rem; }
 h1 { font-size: 1.7rem; line-height: 1.25; }
 h2 { font-size: 1.3rem; margin-top: 2.2rem; }
 h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+button { font: inherit; padding: .6rem 1rem; margin: .25rem .5rem .25rem 0; border-radius: 8px;
+         border: 1px solid var(--muted); background: transparent; color: var(--fg); cursor: pointer; }
+button.danger { background: #b3261e; border-color: #b3261e; color: #fff; }
+button:disabled { opacity: .6; cursor: default; }
+#dw-error { color: #b3261e; }
+@media (prefers-color-scheme: dark) { #dw-error { color: #f2b8b5; } }
 </style>
 </head>
 <body>

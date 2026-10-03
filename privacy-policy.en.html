@@ -14,6 +14,12 @@ nav { color: var(--muted); font-size: 15px; margin-bottom: 1.5rem; }
 h1 { font-size: 1.7rem; line-height: 1.25; }
 h2 { font-size: 1.3rem; margin-top: 2.2rem; }
 h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+button { font: inherit; padding: .6rem 1rem; margin: .25rem .5rem .25rem 0; border-radius: 8px;
+         border: 1px solid var(--muted); background: transparent; color: var(--fg); cursor: pointer; }
+button.danger { background: #b3261e; border-color: #b3261e; color: #fff; }
+button:disabled { opacity: .6; cursor: default; }
+#dw-error { color: #b3261e; }
+@media (prefers-color-scheme: dark) { #dw-error { color: #f2b8b5; } }
 </style>
 </head>
 <body>
@@ -57,14 +63,15 @@ h3 { font-size: 1.1rem; margin-top: 1.6rem; }
 <p>Signing in with a Google account is mandatory: without it, Panier does not open. The SIRET number of a receipt that prints one is sent when the receipt is read, without your having to ask. Identifying a product is optional: nothing is sent to Open Food Facts until you have scanned a product's barcode or asked for its page.</p>
 <p>Panier makes no automated decision about you and builds no profile.</p>
 <h2>Recipients</h2>
-<ul><li><strong>Google</strong>, for Firebase Authentication: it keeps your account data for us and on our instructions, as a processor. Firebase Authentication operates exclusively in the United States: your account data is therefore transferred there. This transfer is covered by the EU–US Data Privacy Framework, which the European Commission found adequate on 10 July 2023 and to which Google adheres; failing that, by the Commission's standard contractual clauses, provided for in the contract between us and Google and a copy of which you can obtain by writing to us. What its components send on their own, Google processes for its own purposes, as stated above.</li><li><strong>The French State</strong> (recherche-entreprises.api.gouv.fr) and the association <strong>Open Food Facts</strong>: they receive the requests described above, with the IP address of your connection, and process them under their own responsibility.</li></ul>
+<ul><li><strong>Google</strong>, for Firebase Authentication: it keeps your account data for us and on our instructions, as a processor. Firebase Authentication operates exclusively in the United States: your account data is therefore transferred there. This transfer is covered by the EU–US Data Privacy Framework, which the European Commission found adequate on 10 July 2023 and to which Google adheres; failing that, by the Commission's standard contractual clauses, provided for in the contract between us and Google and a copy of which you can obtain by writing to us. What its components send on their own, Google processes for its own purposes, as stated above.</li><li><strong>GitHub</strong>, which hosts this policy and the account deletion page (GitHub Pages): like any host, it receives the IP address of the connection of whoever views them, under its own responsibility.</li><li><strong>The French State</strong> (recherche-entreprises.api.gouv.fr) and the association <strong>Open Food Facts</strong>: they receive the requests described above, with the IP address of your connection, and process them under their own responsibility.</li></ul>
 <p>No data is sold or passed to recipients other than those this policy names.</p>
 <h2>Retention and deletion</h2>
 <p>Firebase keeps your account data — email address, name, picture address and identifiers — as long as the account exists.</p>
 <p>What Panier keeps on your phone stays there until you delete it: a receipt, with its photograph, from its page; everything, with your account or by uninstalling the app.</p>
 <p>The business directory and Open Food Facts keep the requests they receive under their own rules; Open Food Facts states that it keeps its connection logs for three years.</p>
 <p>You can delete your account at any time from the app: the account icon, at the top right of any of the four tabs (Panier, Évolutions, Produits, Tickets) → <strong>Supprimer mon compte</strong> ("Delete my account"; the app is in French). Deletion removes your account from Firebase Authentication and erases from your phone your history, your receipts and their photographs. It is final: the account ceases to exist at once, and Google finishes erasing its data from its systems, backups included, within 180 days at most.</p>
-<p>Without access to the app, write to contact.kavini@gmail.com; the request is handled within one month.</p>
+<p>Without the app, you can delete it from the account deletion page: you sign in with Google, see the account's address, then confirm; deletion is immediate. This page loads Firebase's kit from Google's servers (www.gstatic.com) and opens Google's sign-in window: like any request on the internet, this makes the IP address of your connection known to Google. It does not keep your session in the browser: it ends with the tab. Firebase's kit only records there, as in the app, a log of the days it was used (the date and the kit's versions), which it attaches to its requests to Google. It deletes only the account: what Panier keeps on your phone is erased by uninstalling the app.</p>
+<p>You can also write to contact.kavini@gmail.com; the request is handled within one month.</p>
 <h2>Your rights</h2>
 <p>Under the GDPR, you can ask for access to your data, its rectification, its erasure, the restriction of its processing and its portability, by writing to contact.kavini@gmail.com. You can also object to the processing that rests on our legitimate interest, that of your account: as Panier does not open without an account, this amounts to deleting it. We reply within one month.</p>
 <p>These requests concern your account data, the only data we hold. Your receipts, your prices and your photographs are only on your phone: it is in the app that you view, correct and delete them.</p>

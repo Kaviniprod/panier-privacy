@@ -14,12 +14,31 @@ nav { color: var(--muted); font-size: 15px; margin-bottom: 1.5rem; }
 h1 { font-size: 1.7rem; line-height: 1.25; }
 h2 { font-size: 1.3rem; margin-top: 2.2rem; }
 h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+button { font: inherit; padding: .6rem 1rem; margin: .25rem .5rem .25rem 0; border-radius: 8px;
+         border: 1px solid var(--muted); background: transparent; color: var(--fg); cursor: pointer; }
+button.danger { background: #b3261e; border-color: #b3261e; color: #fff; }
+button:disabled { opacity: .6; cursor: default; }
+#dw-error { color: #b3261e; }
+@media (prefers-color-scheme: dark) { #dw-error { color: #f2b8b5; } }
 </style>
 </head>
 <body>
 <nav><a href="index.html">Panier</a> · <a href="account-deletion.en.html" hreflang="en">English</a></nav>
 <main>
 <h1>Supprimer votre compte Panier</h1>
+<section id="delete-widget" hidden data-msg-cancelled="Connexion annulée. Rien n&#x27;a été supprimé." data-msg-blocked="Votre navigateur a bloqué la fenêtre de connexion. Autorisez-la, puis réessayez." data-msg-network="Impossible de joindre Google. Vérifiez votre connexion internet, puis réessayez." data-msg-failed="La suppression a échoué. Réessayez, ou demandez-la par e-mail plus bas.">
+<h2>Supprimer maintenant, depuis cette page</h2>
+<p>Connectez-vous avec le compte Google de Panier : vous verrez son adresse, puis vous confirmerez. Le compte est supprimé aussitôt, sans attendre de réponse.</p>
+<button id="dw-signin" type="button">Se connecter avec Google</button>
+<div id="dw-confirm" hidden>
+<p>Compte à supprimer : <strong id="dw-email"></strong></p>
+<p>La suppression est définitive. Elle ne peut pas être annulée.</p>
+<button id="dw-delete" type="button" class="danger">Supprimer définitivement ce compte</button>
+<button id="dw-cancel" type="button">Annuler</button>
+</div>
+<p id="dw-done" hidden>Votre compte Panier est supprimé. Ce que Panier garde sur votre téléphone s&#x27;efface en désinstallant l&#x27;application.</p>
+<p id="dw-error" role="alert" hidden></p>
+</section>
 <h2>Depuis l'application</h2>
 <ol><li>Ouvrez Panier et connectez-vous.</li><li>Touchez l'icône de compte, en haut à droite de l'un des quatre onglets (Panier, Évolutions, Produits, Tickets).</li><li>Choisissez <strong>Supprimer mon compte</strong>, puis confirmez.</li></ol>
 <p>Google vous demandera de confirmer votre identité : c'est une exigence de sécurité de Firebase, qui refuse de supprimer un compte sur une session ancienne.</p>
@@ -31,5 +50,6 @@ h3 { font-size: 1.1rem; margin-top: 1.6rem; }
 <h2>Ce qui n'est pas supprimé</h2>
 <ul><li>Une copie d'un fichier que l'application recevait ou lisait au moment où elle a été interrompue peut rester dans son cache. Le système peut le vider de lui-même quand le téléphone manque de place ; la désinstallation l'efface.</li><li>Ce que Panier a laissé sur un autre téléphone, si vous l'y avez utilisé ou si votre historique y a été transféré : il s'efface en y désinstallant l'application.</li><li>Les données techniques que les composants de Google envoient d'eux-mêmes à Google, dont les adresses IP de vos connexions, que Google indique conserver quelques semaines. Panier ne les détient pas ; la politique de confidentialité les décrit.</li></ul>
 </main>
+<script type="module" src="delete-account.js"></script>
 </body>
 </html>
